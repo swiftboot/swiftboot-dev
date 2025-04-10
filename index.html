@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,80 +23,80 @@
   </style>
 </head>
 <body>
-<header>
-  <h1>Your App. Your Kernel. Zero Overhead.</h1>
-  <p>Popcorn boots your immutable OCI container as a standalone OS — in under 1 second — across cloud and bare metal.</p>
-  <div class="cta">
-    <a href="#get-started">🚀 Get Started</a>
-    <a href="https://github.com/swiftboot/popcorn" target="_blank">🔍 GitHub + CI Pipelines</a>
-  </div>
-</header>
+  <header>
+    <h1>Your App. Your Kernel. Zero Overhead.</h1>
+    <p>Popcorn boots your immutable OCI container as a standalone OS — in under 1 second — across cloud and bare metal.</p>
+    <div class="cta">
+      <a href="#get-started">🚀 Get Started</a>
+      <a href="https://github.com/swiftboot/popcorn" target="_blank">🔍 GitHub + CI Pipelines</a>
+    </div>
+  </header>
 
-<section>
-  <h2>Why Popcorn Exists</h2>
-  <p>Traditional OS containers run atop mutable hosts, slow to boot and vulnerable to noisy neighbors and attack surfaces. Popcorn changes that: it <strong>turns your OCI app into the OS</strong>, fusing a minimal kernel with your container into a single bootable binary.</p>
-</section>
+  <section>
+    <h2>Why Popcorn Exists</h2>
+    <p>Traditional OS containers run atop mutable hosts, slow to boot and vulnerable to noisy neighbors and attack surfaces. Popcorn changes that: it <strong>turns your OCI app into the OS</strong>, fusing a minimal kernel with your container into a single bootable binary.</p>
+  </section>
 
-<section>
-  <h2>Popcorn + SwiftBoot: What's Inside</h2>
-  <h3>Immutable Kernel Lifecycle</h3>
-  <ul>
-    <li>Overlay-based kernel configuration — no patches, ever</li>
-    <li>CI-integrated boot testing, config validation, and metrics collection</li>
-    <li>Branch pivoting logic with version-aware fast-forwarding</li>
-    <li>Multi-cloud config presets for AWS, Azure, GCP, and KVM</li>
-  </ul>
+  <section>
+    <h2>Popcorn + SwiftBoot: What's Inside</h2>
+    <h3>Immutable Kernel Lifecycle</h3>
+    <ul>
+      <li>Overlay-based kernel configuration — no patches, ever</li>
+      <li>CI-integrated boot testing, config validation, and metrics collection</li>
+      <li>Branch pivoting logic with version-aware fast-forwarding</li>
+      <li>Multi-cloud config presets for AWS, Azure, GCP, and KVM</li>
+    </ul>
 
-  <h3>Sub-Second Boot Performance</h3>
-  <table>
-    <thead><tr><th>Cloud</th><th>Platform</th><th>Boot Time</th><th>Boot Type</th></tr></thead>
-    <tbody>
-    <tr><td>AWS</td><td>Nitro</td><td>~450ms</td><td>EFI</td></tr>
-    <tr><td>Azure</td><td>Hyper-V Gen2</td><td>~800ms</td><td>EFI</td></tr>
-    <tr><td>GCP</td><td>KVM</td><td>~500ms</td><td>EFI</td></tr>
-    <tr><td>QEMU</td><td>Local</td><td>~300ms</td><td>BIOS</td></tr>
-    </tbody>
-  </table>
+    <h3>Sub-Second Boot Performance</h3>
+    <table>
+      <thead><tr><th>Cloud</th><th>Platform</th><th>Boot Time</th><th>Boot Type</th></tr></thead>
+      <tbody>
+        <tr><td>AWS</td><td>Nitro</td><td>~450ms</td><td>EFI</td></tr>
+        <tr><td>Azure</td><td>Hyper-V Gen2</td><td>~800ms</td><td>EFI</td></tr>
+        <tr><td>GCP</td><td>KVM</td><td>~500ms</td><td>EFI</td></tr>
+        <tr><td>QEMU</td><td>Local</td><td>~300ms</td><td>BIOS</td></tr>
+      </tbody>
+    </table>
 
-  <h3>Seed Images: Prebuilt Apps That Pop</h3>
-  <table>
-    <thead><tr><th>App</th><th>Description</th><th>Boot Time</th><th>Cloud Ready</th></tr></thead>
-    <tbody>
-    <tr><td>Nginx</td><td>Static site in under 500ms</td><td>~400ms</td><td>✅</td></tr>
-    <tr><td>PostgreSQL</td><td>Ephemeral dev database</td><td>~450ms</td><td>✅</td></tr>
-    <tr><td>Redis</td><td>In-memory microservice</td><td>~420ms</td><td>✅</td></tr>
-    <tr><td>Alpine + Bash</td><td>Debug shell image</td><td>~350ms</td><td>✅</td></tr>
-    </tbody>
-  </table>
-</section>
+    <h3>Seed Images: Prebuilt Apps That Pop</h3>
+    <table>
+      <thead><tr><th>App</th><th>Description</th><th>Boot Time</th><th>Cloud Ready</th></tr></thead>
+      <tbody>
+        <tr><td>Nginx</td><td>Static site in under 500ms</td><td>~400ms</td><td>✅</td></tr>
+        <tr><td>PostgreSQL</td><td>Ephemeral dev database</td><td>~450ms</td><td>✅</td></tr>
+        <tr><td>Redis</td><td>In-memory microservice</td><td>~420ms</td><td>✅</td></tr>
+        <tr><td>Alpine + Bash</td><td>Debug shell image</td><td>~350ms</td><td>✅</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-<section>
-  <h2>Supply Chain & Security Comparison</h2>
-  <table>
-    <thead>
-    <tr><th>Feature</th><th>Popcorn</th><th>Chainguard</th><th>Bottlerocket</th><th>Vanilla OCI</th></tr>
-    </thead>
-    <tbody>
-    <tr><td>Bootable image (no host OS)</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
-    <tr><td>Millisecond cloud boot</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
-    <tr><td>Verified kernel lifecycle CI</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
-    <tr><td>Immutable + reproducible</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
-    <tr><td>Zero-runtime attack surface</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
-    <tr><td>Cloud-native GitHub pipeline</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
-    </tbody>
-  </table>
-</section>
+  <section>
+    <h2>Supply Chain & Security Comparison</h2>
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Popcorn</th><th>Chainguard</th><th>Bottlerocket</th><th>Vanilla OCI</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bootable image (no host OS)</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+        <tr><td>Millisecond cloud boot</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><td>Verified kernel lifecycle CI</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><td>Immutable + reproducible</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td>Zero-runtime attack surface</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><td>Cloud-native GitHub pipeline</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-<section id="get-started">
-  <h2>Get Started in CI</h2>
-  <pre><code># Build and publish for AWS Nitro
+  <section id="get-started">
+    <h2>Get Started in CI</h2>
+    <pre><code># Build and publish for AWS Nitro
 ./scripts/build/kernels.sh aws-nitro
 ./scripts/publish/aws/to-aws.sh my-popcorn-image</code></pre>
-  <p>Supports <code>--reference</code> object stores, multi-arch builds, and isolated CI runners with pinned kernel tags.</p>
-</section>
+    <p>Supports <code>--reference</code> object stores, multi-arch builds, and isolated CI runners with pinned kernel tags.</p>
+  </section>
 
-<footer style="text-align:center; padding: 2rem 1rem; font-size: 0.9rem; background: #f8f8f8;">
-  <p>Built with ❤️ by SwiftBoot. Boot fast. Build clean. Ship boldly.</p>
-</footer>
+  <footer style="text-align:center; padding: 2rem 1rem; font-size: 0.9rem; background: #f8f8f8;">
+    <p>Built with ❤️ by SwiftBoot. Boot fast. Build clean. Ship boldly.</p>
+  </footer>
 </body>
 </html>
