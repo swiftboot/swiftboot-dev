@@ -1,88 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SwiftBoot.dev</title>
-    <meta name="color-scheme" content="light dark" />
-    <style>
-      :root { color-scheme: light dark; }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Popcorn by SwiftBoot</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #222; line-height: 1.6; }
+    header { background: #002244; color: #fff; padding: 3rem 2rem; text-align: center; }
+    header h1 { font-size: 2.75rem; margin-bottom: 1rem; }
+    header p { font-size: 1.2rem; max-width: 800px; margin: auto; }
+    .cta { margin-top: 2rem; }
+    .cta a { display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background: #00cc88; color: #fff; text-decoration: none; border-radius: 5px; }
+    section { padding: 2.5rem 1.5rem; max-width: 960px; margin: auto; }
+    h2 { font-size: 2rem; margin-top: 2rem; }
+    h3 { margin-top: 1.5rem; color: #004466; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 0.75rem; border: 1px solid #ccc; text-align: left; }
+    th { background: #f4f4f4; }
+    .highlight { background: #eafbf4; }
+    pre, code { background: #f4f4f4; padding: 0.25rem 0.5rem; border-radius: 3px; display: block; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Your App. Your Kernel. Zero Overhead.</h1>
+  <p>Popcorn boots your immutable OCI container as a standalone OS — in under 1 second — across cloud and bare metal.</p>
+  <div class="cta">
+    <a href="#get-started">🚀 Get Started</a>
+    <a href="https://github.com/swiftboot/popcorn" target="_blank">🔍 GitHub + CI Pipelines</a>
+  </div>
+</header>
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-                     "Open Sans", "Helvetica Neue", sans-serif;
-        margin: 0;
-        padding: 2rem;
-        line-height: 1.6;
-        color: #222;
-        background: #f9f9f9;
-        text-align: center;
-        max-width: 42rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
+<section>
+  <h2>Why Popcorn Exists</h2>
+  <p>Traditional OS containers run atop mutable hosts, slow to boot and vulnerable to noisy neighbors and attack surfaces. Popcorn changes that: it <strong>turns your OCI app into the OS</strong>, fusing a minimal kernel with your container into a single bootable binary.</p>
+</section>
 
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: #121212;
-          color: #f5f5f5;
-        }
+<section>
+  <h2>Popcorn + SwiftBoot: What's Inside</h2>
+  <h3>Immutable Kernel Lifecycle</h3>
+  <ul>
+    <li>Overlay-based kernel configuration — no patches, ever</li>
+    <li>CI-integrated boot testing, config validation, and metrics collection</li>
+    <li>Branch pivoting logic with version-aware fast-forwarding</li>
+    <li>Multi-cloud config presets for AWS, Azure, GCP, and KVM</li>
+  </ul>
 
-        a {
-          color: #8ab4f8;
-        }
-      }
+  <h3>Sub-Second Boot Performance</h3>
+  <table>
+    <thead><tr><th>Cloud</th><th>Platform</th><th>Boot Time</th><th>Boot Type</th></tr></thead>
+    <tbody>
+    <tr><td>AWS</td><td>Nitro</td><td>~450ms</td><td>EFI</td></tr>
+    <tr><td>Azure</td><td>Hyper-V Gen2</td><td>~800ms</td><td>EFI</td></tr>
+    <tr><td>GCP</td><td>KVM</td><td>~500ms</td><td>EFI</td></tr>
+    <tr><td>QEMU</td><td>Local</td><td>~300ms</td><td>BIOS</td></tr>
+    </tbody>
+  </table>
 
-      h1, h2 {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-      }
+  <h3>Seed Images: Prebuilt Apps That Pop</h3>
+  <table>
+    <thead><tr><th>App</th><th>Description</th><th>Boot Time</th><th>Cloud Ready</th></tr></thead>
+    <tbody>
+    <tr><td>Nginx</td><td>Static site in under 500ms</td><td>~400ms</td><td>✅</td></tr>
+    <tr><td>PostgreSQL</td><td>Ephemeral dev database</td><td>~450ms</td><td>✅</td></tr>
+    <tr><td>Redis</td><td>In-memory microservice</td><td>~420ms</td><td>✅</td></tr>
+    <tr><td>Alpine + Bash</td><td>Debug shell image</td><td>~350ms</td><td>✅</td></tr>
+    </tbody>
+  </table>
+</section>
 
-      a {
-        color: #0066cc;
-        text-decoration: none;
-      }
+<section>
+  <h2>Supply Chain & Security Comparison</h2>
+  <table>
+    <thead>
+    <tr><th>Feature</th><th>Popcorn</th><th>Chainguard</th><th>Bottlerocket</th><th>Vanilla OCI</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>Bootable image (no host OS)</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+    <tr><td>Millisecond cloud boot</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+    <tr><td>Verified kernel lifecycle CI</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+    <tr><td>Immutable + reproducible</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+    <tr><td>Zero-runtime attack surface</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+    <tr><td>Cloud-native GitHub pipeline</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+    </tbody>
+  </table>
+</section>
 
-      a:hover {
-        text-decoration: underline;
-      }
+<section id="get-started">
+  <h2>Get Started in CI</h2>
+  <pre><code># Build and publish for AWS Nitro
+./scripts/build/kernels.sh aws-nitro
+./scripts/publish/aws/to-aws.sh my-popcorn-image</code></pre>
+  <p>Supports <code>--reference</code> object stores, multi-arch builds, and isolated CI runners with pinned kernel tags.</p>
+</section>
 
-      code {
-        background: rgba(0, 0, 0, 0.05);
-        padding: 0.2em 0.4em;
-        border-radius: 4px;
-        font-family: monospace;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>SwiftBoot & Popcorn</h1>
-    <p><strong>Fast, secure kernel boot and deployment for cloud-native systems.</strong></p>
-
-    <h2>🚀 What is SwiftBoot?</h2>
-    <p>
-      SwiftBoot is a minimal, ultra-fast Linux kernel platform built for modern CI/CD pipelines,
-      cloud-native containers, and security-conscious edge environments. It integrates upstream sources like
-      <code>torvalds</code>, <code>gkh-stable</code>, and <code>asahi</code> using a shared Git object store.
-    </p>
-
-    <h2>🍿 What is Popcorn?</h2>
-    <p>
-      Popcorn is a unified image format that combines the SwiftBoot kernel and a rootless OCI app.
-      It boots in milliseconds and "pops" directly into your workload.
-    </p>
-
-    <h2>💡 Why it Matters</h2>
-    <p>
-      - Reuses kernel history across clones to save space and time<br />
-      - Speeds up CI via shared runner Git caches<br />
-      - Prevents accidental pushes to upstream<br />
-      - Enables deterministic, reproducible builds with full traceability
-    </p>
-
-    <h2>🔗 Explore</h2>
-    <p>
-      <a href="https://github.com/swiftboot" target="_blank" rel="noopener">Visit us on GitHub →</a>
-    </p>
-  </body>
+<footer style="text-align:center; padding: 2rem 1rem; font-size: 0.9rem; background: #f8f8f8;">
+  <p>Built with ❤️ by SwiftBoot. Boot fast. Build clean. Ship boldly.</p>
+</footer>
+</body>
 </html>
