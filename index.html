@@ -297,6 +297,86 @@
 
     </div>
   </section>
+  <section id="comparison-kata" style="padding: 2rem; background: #f9fafb;">
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">
+      📊 Comparison with Kata Containers
+    </h2>
+    <p style="max-width: 700px; color: #4b5563; margin-bottom: 1.5rem;">
+      Popcorn™ and Kata both offer hardened isolation — but that’s where the similarity ends.
+      Scroll to explore why Popcorn’s zero-runtime boot model is in a class of its own.
+    </p>
+
+    <div style="max-height: 600px; overflow-y: auto; padding-right: 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; background: #ffffff;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; padding: 1rem; font-size: 0.95rem; color: #111827;">
+
+        <!-- Performance -->
+        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+          <h3 style="font-weight: 600; margin-bottom: 0.5rem;">🚀 Performance & Boot Speed</h3>
+          <ul style="margin-left: 1rem; list-style: disc;">
+            <li><strong>Popcorn:</strong> Sub-second boot (300–800ms), no runtime or guest OS.</li>
+            <li><strong>Kata:</strong> 1–5s boot with container runtime and guest VM.</li>
+          </ul>
+        </div>
+
+        <!-- Security -->
+        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+          <h3 style="font-weight: 600; margin-bottom: 0.5rem;">🔒 Security Model</h3>
+          <ul style="margin-left: 1rem; list-style: disc;">
+            <li><strong>Popcorn:</strong> Zero-runtime: no SSH, users, or daemons.</li>
+            <li><strong>Kata:</strong> Guest OS with reduced but present surface.</li>
+          </ul>
+        </div>
+
+        <!-- Philosophy -->
+        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+          <h3 style="font-weight: 600; margin-bottom: 0.5rem;">🧱 Architecture Philosophy</h3>
+          <ul style="margin-left: 1rem; list-style: disc;">
+            <li><strong>Popcorn:</strong> App *is* the system. Single sealed binary.</li>
+            <li><strong>Kata:</strong> VM layer runs container on top of host system.</li>
+          </ul>
+        </div>
+
+        <!-- Operations -->
+        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+          <h3 style="font-weight: 600; margin-bottom: 0.5rem;">⚙️ Operational Lifecycle</h3>
+          <ul style="margin-left: 1rem; list-style: disc;">
+            <li><strong>Popcorn:</strong> Immutable, CI-pinned, no drift.</li>
+            <li><strong>Kata:</strong> Requires patching and VM config management.</li>
+          </ul>
+        </div>
+
+        <!-- Simplicity -->
+        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+          <h3 style="font-weight: 600; margin-bottom: 0.5rem;">📦 Simplicity & Deployability</h3>
+          <ul style="margin-left: 1rem; list-style: disc;">
+            <li><strong>Popcorn:</strong> App + Kernel + RootFS in one image.</li>
+            <li><strong>Kata:</strong> Separate container image, guest OS, hypervisor.</li>
+          </ul>
+        </div>
+
+        <!-- Stakeholders -->
+        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+          <h3 style="font-weight: 600; margin-bottom: 0.5rem;">👩‍💻 Stakeholder Impact</h3>
+          <ul style="margin-left: 1rem; list-style: disc;">
+            <li><strong>Popcorn:</strong> Devs ship faster, SREs sleep, CFOs save.</li>
+            <li><strong>Kata:</strong> Better than Docker, but still slower and heavier.</li>
+          </ul>
+        </div>
+
+        <!-- Summary -->
+        <div style="background: #fef3c7; border: 1px solid #fcd34d; padding: 1.25rem; border-radius: 0.5rem; grid-column: span 2;">
+          <h3 style="font-weight: bold; font-size: 1.1rem;">✨ TL;DR</h3>
+          <p style="margin-top: 0.5rem;">
+            <strong>Popcorn boots your workload — not a container inside a VM.</strong><br>
+            It’s smaller, faster, and simpler than Kata. No runtime. No drift. No excuses.
+          </p>
+          <p style="margin-top: 0.5rem; font-style: italic;">
+            If your team wants serverless speed with VM-grade security and container simplicity — Popcorn pops.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer style="text-align:center; padding: 2rem 1rem; font-size: 0.9rem; background: #f8f8f8;">
     <p>Built with ❤️ by SwiftBoot. Boot fast. Build clean. Ship boldly.</p>
