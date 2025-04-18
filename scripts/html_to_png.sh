@@ -129,16 +129,38 @@ function _render_chromium() {
     --force-dark-mode
     --blink-settings=preferredColorScheme=2
     --screenshot="${out_png}"
-    --window-size=1280,${height}
+    --window-size=1280,"${height}"
     --enable-software-rasterizer
     --disable-features=SharedImage
     "file://${html_file}"
   )
-  if timeout 10s "${CHROMIUM_PATH}" "${chromium_flags[@]}" 2>&1 | tee >(grep 'bytes written' || true); then
+  if _chromium_render_successful "${CHROMIUM_PATH}" "${chromium_flags[@]}"; then
     log::info "Render complete"
   else
     log::error "Chromium did not confirm successful render"
   fi
+}
+
+function _chromium_render_successful() {
+  local -r chromium_bin="${1}"
+  shift
+  # Create a temporary named pipe
+  local -r cr_pipe=$(mktemp -u)
+  mkfifo "${cr_pipe}"
+  "${chromium_bin}" "$@" 1>"${cr_pipe}" 2>&1 &
+  local chromium_pid=$!
+
+  # Set up a background timeout to kill "chromium" after 10 seconds
+  (sleep 10; kill "${chromium_pid}") &
+  local -r sleep_pid=$!
+
+  awk '{print $0} /bytes written/ {exit}' <"${cr_pipe}"
+  # Clean up by removing the named pipe
+  set +m
+  kill -9 "${chromium_pid}" > /dev/null 2>&1
+  kill -9 "${sleep_pid}" > /dev/null 2>&1
+  set -m
+  rm "${cr_pipe}"
 }
 
 function _trim_output_png() {
