@@ -35,6 +35,8 @@ function main() {
   fi
   log::info "Input HTML validated: ${input_html}"
 
+  _detect_chromium_build
+
   local -r temp_html="/tmp/$(basename "${input_html}").wrapped.html"
   local -r temp_png="/tmp/$(basename "${input_html}").raw.png"
   local -r final_png="$(basename "${input_html}" .html).png"
@@ -104,6 +106,20 @@ HEREDOC_HTML
   fi
 
   log::shutdown
+}
+
+function _detect_chromium_build() {
+  CHROMIUM_PATH="/Applications/Chromium.app/Contents/MacOS/Chromium"
+  if [[ ! -x "${CHROMIUM_PATH}" ]]; then
+    log::error "Chromium binary not found at ${CHROMIUM_PATH}"
+  fi
+  local version_output
+  version_output="$(${CHROMIUM_PATH} --version 2>/dev/null || true)"
+  log::info "Chromium version: ${version_output}"
+  case "${version_output}" in
+    *"Chromium"*) log::info "Detected ungoogled Chromium build" ;;
+    *) log::warn "Chromium is not an ungoogled (Eloston) build — you may see keychain prompts or crashes" ;;
+  esac
 }
 
 main "$@"
