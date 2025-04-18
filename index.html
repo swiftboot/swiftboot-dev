@@ -240,6 +240,20 @@
         overflow-y: auto;
         text-align: left;
       }
+      .md-pane-rendered {
+        background: #f9f9f9;
+        color: #111;
+        padding: 2rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        overflow-y: auto;
+        font-family: sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 2rem auto;
+        max-width: 960px;
+        height: 3in; /* ✅ added to enforce 3" height */
+      }
     }
     /* Dark mode overrides for inline-styled blocks */
     @media (prefers-color-scheme: dark) {
@@ -259,6 +273,11 @@
         color: #ccc !important;
       }
       .md-pane.md-markdown {
+        background: #1a1a1a;
+        color: #eee;
+        border-color: #333;
+      }
+      .md-pane-rendered {
         background: #1a1a1a;
         color: #eee;
         border-color: #333;
@@ -341,204 +360,37 @@
 
   <section>
     <h2>📄 Full Why Popcorn™ Markdown</h2>
-    <div style="max-height: 800px; overflow-y: scroll; border: 1px solid #ccc; padding: 1rem; background: #fdfdfd; font-family: monospace; white-space: pre-wrap;">
-# 🍿 Why Use Popcorn™
-
-**Popcorn™ is the fastest, most efficient way to deploy cloud-native applications using microVMs.**
-
-When milliseconds matter, Popcorn™ delivers.
-
----
-
-## 🚀 Instant Boot = Instant Scale
-
-Popcorn™ fuses your application and kernel into a single bootable image. That means your microVMs go from *cold storage* to *running workload* in **under a second** — no OS boot, no container daemon, no spin-up delay.
-
-> Your app *pops* the moment it's needed. Perfect for autoscaling, CI/CD, and bursty workloads.
-
----
-
-## 🧈 Buttery Smooth Performance
-
-Unlike containers, Popcorn™ runs on **bare metal microVMs** with **hardware-level isolation** — without sacrificing speed. It’s designed for **zero-jitter cold starts**, **low-latency IO**, and **predictable runtime behavior** across every launch.
-
-> The result? Fewer surprises. Happier SREs.
-
----
-
-## 📦 One Image, All You Need
-
-Popcorn™ packages:
-
-- Your **application**
-- A **minimal kernel**
-- An **OCI-compliant root filesystem**
-
-...into a single immutable image. No more managing base OS versions or dependencies across environments.
-
-> Build it once, run it anywhere microVMs run — even air-gapped.
-
----
-
-## 🔒 Secure by Construction
-
-Popcorn™ minimizes your attack surface:
-
-- No systemd
-- No SSH
-- No package manager
-- No users
-- No legacy drivers
-- No blobs
-- No indigestion
-- No daemons waving backdoor ports
-- No gremlins hiding behind systemd
-
-Just your app, in a tamper-resistant, read-only image — with full support for measured boot and signed workloads.
-
-> Fewer moving parts. Fewer exploits.
-
----
-
-## 🧮 Smaller. Faster. Cheaper.
-
-Popcorn™ images are tiny — often **<10MB**, boot in **<1 second**, and use **~4x less memory** than traditional VMs. That translates directly to **lower cloud costs**, higher density, and more responsive workloads.
-
-> Fit more apps per node. Pay less per workload.
-
----
-
-## 🟡 Popcorn™ is what microVMs were meant to be.
-
-If your team is ready for:
-
-- Serverless speed
-- VM-grade security
-- Container-like simplicity
-
-...then you're ready to pop.
-    </div>
+    <div class="md-pane-rendered" id="why-md"></div>
+    <script>
+      fetch('snippets/why-popcorn.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('why-md').innerHTML = html;
+        });
+    </script>
   </section>
 
   <section>
     <h2>🎯 Stakeholders Who Crave Popcorn™</h2>
-    <div style="max-height: 800px; overflow-y: scroll; border: 1px solid #ccc; padding: 1rem; background: #fdfdfd; font-family: monospace; white-space: pre-wrap;">
-# 🎯 Stakeholders Who Crave Popcorn™
-
-Popcorn™ delivers boot-speed infrastructure that satisfies across the stack — from hands-on engineers to high-stakes boardrooms.
-
----
-
-## 👩‍💻 Developers
-
-Popcorn™ clears the clutter: no base image stew, no bloated init, no surprise daemons. Just code that boots like an appliance — fast, clean, and repeatable. CI/CD pipelines simplify. Cold starts evaporate. And devs ship with joy.
-
-> Your code *is* the system. And it pops.
-
----
-
-## 🧭 Product Managers
-
-Popcorn™ makes environments invisible and delivery reliable. Boot times are sub-second. Environments are reproducible. Rollbacks are just image swaps. Product teams move fast, deploy fearlessly, and sleep better.
-
-> Fewer war rooms. Faster releases.
-
----
-
-## 💰 CFOs
-
-Popcorn™ cuts your cloud bill. Tiny images, high density, low RAM use, and microVM isolation mean you run more with less. Immutable workloads mean fewer incidents and lower support cost.
-
-> Spend less per boot. Maximize your margins.
-
----
-
-## 🛠️ Site Reliability Engineers (SREs)
-
-Popcorn™ gives you the trifecta: predictability, observability, and calm. Immutable images boot in milliseconds with no drift, no zombies, no background surprises. Just pure signal.
-
-> Fewer incidents. More uptime. No midnight gremlins.
-
----
-
-## 🧑‍💼 CEOs
-
-Popcorn™ simplifies your platform story: fewer tools, fewer vendors, and a unified infrastructure that moves with your business. Security, velocity, and operational confidence — baked in.
-
-> Infrastructure becomes a strategic asset.
-
----
-
-## 🪑 Board of Directors
-
-Popcorn™ reduces attack surface, eliminates drift, and enables verifiable supply chains. Immutable, signed images plus measured boot give auditors and compliance teams hard guarantees — not wishful thinking.
-
-> Reduced risk. Cleaner governance. Shareholder confidence.
-
----
-
-## 🔒 CISOs / Security Teams
-
-Popcorn™ has no package managers, no SSH, no users, and no daemon ports. It’s secure by construction with zero-runtime attack surface. Boot integrity is provable. Attestation is simple.
-
-> Security isn't an afterthought — it's a kernel feature.
-
----
-
-## 🧾 Compliance & Risk Officers
-
-Popcorn™ reduces the compliance blast radius. Workloads are immutable, auditable, and versioned. That means easier attestations, cleaner logs, and fewer policy exceptions.
-
-> Shorter audits. Smaller scopes. Fewer surprises.
-
----
-
-## ⚙️ Platform Engineers
-
-Popcorn™ is the foundation you've always wanted: reproducible, bootable, pre-tested workloads with zero base OS maintenance. Golden images, made real.
-
-> From snowflakes to snapshots. Your platform, distilled.
-
----
-
-## 💡 Innovation Leads / R&D
-
-Popcorn™ is perfect for rapid iteration — lightweight images, instant boot, easy teardown. Build, test, ship, discard. Explore freely without cloud waste.
-
-> Lab speed at prod scale.
-
----
-
-## 🌐 Edge & IoT Ops
-
-Popcorn™ boots anywhere — fast. Whether it's a factory edge node or a solar-powered station in the desert, Popcorn's tiny size and deterministic boot make it ideal for constrained and remote environments.
-
-> Minimal power. Max reliability.
-
----
-
-## 📦 DevOps & Release Engineering
-
-Popcorn™ eliminates flaky deployments. Every image is a sealed unit: app, kernel, rootfs — no drift, no missing deps. Build once, ship everywhere, and debug almost never.
-
-> Artifacts you can trust.
-
----
-
-## 🖥️ IT / Desktop Ops
-
-Boot dev environments or internal sandboxes instantly, with no config drift and no full OS installs. Perfect for secure laptops, hackathons, and air-gapped labs.
-
-> No reimaging. Just re-popping.
-
----
-
-## 🌍 Sustainability / Green IT
-
-Popcorn™ uses fewer resources: faster boots, lower memory, higher density. That translates to less energy use and better carbon efficiency at scale.
-
-> Run leaner. Boot greener.
-    </div>
+    <div class="md-pane-rendered" id="crave"></div>
+    <script>
+      fetch('snippets/crave.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('crave').innerHTML = html;
+        });
+    </script>
+  </section>
+  <section>
+    <h2>🌍 SwiftBoot at the Edge: Embedded, Instant, Unstoppable</h2>
+    <div class="md-pane-rendered" id="swiftboot-edge"></div>
+    <script>
+      fetch('snippets/swiftboot-edge.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('swiftboot-edge').innerHTML = html;
+        });
+    </script>
   </section>
   <section id="comparison-kata" class="kata-section">
     <h2>
