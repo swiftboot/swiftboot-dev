@@ -1,0 +1,129 @@
+<h1 id="swiftboot-for-edge-iot-and-embedded-systems">🚀 SwiftBoot for
+Edge, IoT, and Embedded Systems</h1>
+<p>SwiftBoot isn’t just minimal — it’s surgical. In power-starved,
+space-constrained, and latency-critical environments, SwiftBoot brings
+your kernel, your app, and nothing else — ready in <strong>under 0.25s
+on ARM</strong>, <strong>under 0.5s on x86</strong>, unless your
+hardware is throttled by power constraints.</p>
+<hr />
+<h2 id="from-deepest-sleep-to-operational-in-0.5s">💤 From Deepest Sleep
+to Operational in &lt;0.5s</h2>
+<p>SwiftBoot supports the <strong>deepest ACPI-defined power
+states</strong> like <strong>S5 (Soft Off)</strong> or even <strong>G3
+(Mechanical Off)</strong>. It idles in ultra-low-power mode, waiting for
+GPIO, CAN, or RTC triggers. When signaled, it goes <strong>from cold
+iron to app logic in under half a second</strong>.</p>
+<ul>
+<li>✅ <strong>ARM SoCs (e.g., Cortex-A53, A76)</strong> boot to app in
+<strong>&lt;0.25s</strong></li>
+<li>✅ <strong>x86/UEFI</strong> boots land at
+<strong>&lt;0.5s</strong></li>
+<li>⚡ Even underclocked or battery-constrained CPUs can hit
+<strong>sub-second</strong> cold boots</li>
+<li>💤 <strong>Zero drain.</strong> True power-off with event-driven
+wake</li>
+</ul>
+<hr />
+<h2 id="fits-where-nothing-else-can">🧠 Fits Where Nothing Else Can</h2>
+<p>SwiftBoot is a surgical Linux stack: <strong>kernel + OCI rootfs +
+app</strong>. No initrd. No systemd. No bloat.</p>
+<ul>
+<li><strong>&lt;10MB</strong> total image size</li>
+<li><strong>&lt;20MB</strong> RAM at runtime</li>
+<li>Boot from NOR, NAND, eMMC, SD, or SPI flash</li>
+<li>ROM-ready builds for field and factory</li>
+</ul>
+<hr />
+<h2 id="guaranteed-sub-second-startup">⏱️ Guaranteed Sub-Second
+Startup</h2>
+<p>In time-critical systems like automotive, sub-2s boot is a hard
+requirement. SwiftBoot exceeds it <strong>by 4–8×</strong>.</p>
+<p>According to <strong>AUTOSAR Adaptive Platform</strong> and
+<strong>ISO 26262</strong> design guidance:</p>
+<ul>
+<li>ECUs supporting ADAS, camera, and safety systems <strong>must be
+operational in ≤2s</strong></li>
+<li>SwiftBoot enables app availability in:
+<ul>
+<li><strong>&lt;0.25s on ARM</strong></li>
+<li><strong>&lt;0.5s on x86</strong></li>
+</ul></li>
+</ul>
+<h3 id="related-standards">Related Standards</h3>
+<ul>
+<li><strong>AUTOSAR Adaptive Platform</strong> – POSIX-compliant,
+safety-ready embedded framework</li>
+<li><strong>ISO 26262</strong> – Functional safety requirements for
+automotive electronics</li>
+<li><strong>UN Regulation R155 / R156</strong> – Secure software
+updates, cybersecurity traceability</li>
+<li><strong>ASIL-D</strong> – Highest automotive safety integrity level
+(deterministic boot required)</li>
+</ul>
+<hr />
+<h2 id="use-cases-and-performance-snapshots">🔧 Use Cases and
+Performance Snapshots</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 23%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Target Boot Time</th>
+<th>SwiftBoot Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backup camera ECU</td>
+<td>≤2s</td>
+<td>Cold boot + camera app <strong>&lt;0.5s</strong></td>
+</tr>
+<tr>
+<td>Smart doorbell (solar)</td>
+<td>≤3s</td>
+<td>Wake-to-stream <strong>&lt;0.5s</strong></td>
+</tr>
+<tr>
+<td>Sensor node (deep sleep)</td>
+<td>&lt;1s</td>
+<td>Cold start <strong>&lt;0.25s (ARM)</strong></td>
+</tr>
+<tr>
+<td>Automotive ECU failover</td>
+<td>≤2s</td>
+<td>Standby image boot <strong>&lt;0.5s</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="custom-hardware-no-problem.">🛠️ Custom Hardware? No
+Problem.</h2>
+<p>Every device is different — and we get that.</p>
+<p>Our professional services team can:</p>
+<ul>
+<li>Configure, build, and qualify a <strong>SwiftBoot kernel to the
+exact specs of your hardware</strong></li>
+<li>Work directly with your team to <strong>enable critical device
+drivers, patch board quirks, and optimize boot path</strong></li>
+<li>Support you through the <strong>smoke test, validation, field test,
+and production</strong>, with engagement levels tailored to your
+needs</li>
+</ul>
+<p>Whether you’re designing for a new silicon platform, repurposing a
+legacy board, or consolidating a fleet — we’re here to help.</p>
+<hr />
+<h2 id="bonus-ci-integrated-oci-native-secure-by-design">🔐 Bonus:
+CI-integrated, OCI-native, Secure by Design</h2>
+<p>SwiftBoot containers are:</p>
+<ul>
+<li><strong>Immutable</strong>, signed, and CI-reproducible</li>
+<li>Fully traceable from Git commit to boot image</li>
+<li>Easy to A/B test or roll back — without touching the kernel</li>
+<li>Embedded-update friendly: use <code>mender</code>,
+<code>rauc</code>, or custom pipelines</li>
+</ul>
+<hr />
