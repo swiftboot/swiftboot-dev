@@ -6,20 +6,237 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Popcorn by SwiftBoot</title>
   <style>
-    body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #222; line-height: 1.6; }
-    header { background: #002244; color: #fff; padding: 3rem 2rem; text-align: center; }
-    header h1 { font-size: 2.75rem; margin-bottom: 1rem; }
-    header p { font-size: 1.2rem; max-width: 800px; margin: auto; }
-    .cta { margin-top: 2rem; }
-    .cta a { display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background: #00cc88; color: #fff; text-decoration: none; border-radius: 5px; }
-    section { padding: 2.5rem 1.5rem; max-width: 960px; margin: auto; }
-    h2 { font-size: 2rem; margin-top: 2rem; }
-    h3 { margin-top: 1.5rem; color: #004466; }
-    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-    th, td { padding: 0.75rem; border: 1px solid #ccc; text-align: left; }
-    th { background: #f4f4f4; }
-    .highlight { background: #eafbf4; }
-    pre, code { background: #f4f4f4; padding: 0.25rem 0.5rem; border-radius: 3px; display: block; overflow-x: auto; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background: #002244;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.75rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cta {
+      margin-top: 2rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #00cc88;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 2.5rem 1.5rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    h3 {
+      margin-top: 1.5rem;
+      color: #004466;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    pre, code {
+      background: #f4f4f4;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      display: block;
+      overflow-x: auto;
+    }
+
+    footer {
+      background: #f8f8f8;
+      color: #444;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* SCROLLABLE PANES — inherit by default */
+    .md-pane {
+      max-height: 600px;
+      overflow-y: scroll;
+      padding: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      color: #111;
+    }
+
+    .kata-scroll {
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      background: #ffffff;
+    }
+
+    .kata-box {
+      background: #f3f4f6;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .kata-summary {
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
+      padding: 1.25rem;
+      border-radius: 0.5rem;
+      grid-column: span 2;
+    }
+
+    .kata-section {
+      padding: 2rem;
+      background: #f9fafb;
+    }
+
+    .kata-description {
+      max-width: 700px;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111;
+        color: #eee;
+      }
+
+      header {
+        background: #000022;
+        color: #fff;
+      }
+
+      h3 {
+        color: #66fcf1;
+      }
+
+      th {
+        background: #222;
+        color: #fff;
+      }
+
+      td {
+        background: #1a1a1a;
+      }
+
+      pre, code {
+        background: #222;
+        color: #ccc;
+      }
+
+      .cta a {
+        background: #007755;
+        color: #fff;
+      }
+
+      .md-pane {
+        background: #1a1a1a;
+        color: #eee;
+        border-color: #333;
+      }
+
+      footer {
+        background: #111;
+        color: #888;
+      }
+
+      .kata-scroll {
+        background: #1a1a1a;
+        border-color: #333;
+      }
+
+      .kata-box {
+        background: #222;
+        color: #eee;
+      }
+
+      .kata-summary {
+        background: #333;
+        border-color: #555;
+        color: #ffe066;
+      }
+      .kata-section {
+        background: #1a1a1a;
+      }
+
+      .kata-description {
+        color: #ccc;
+      }
+      .related-links {
+        background: #1a1a1a;
+        color: #eee;
+      }
+
+      .related-links a {
+        color: #00ffe2; /* bright cyan-green, readable on dark */
+        text-decoration: underline;
+      }
+    }
+    /* Dark mode overrides for inline-styled blocks */
+    @media (prefers-color-scheme: dark) {
+      [style*="background: #f9f9f9"],
+      [style*="background: #fdfdfd"],
+      [style*="background: #ffffff"],
+      [style*="background: #f3f4f6"],
+      [style*="background: #fef3c7"] {
+        background: #1a1a1a !important;
+        color: #eee !important;
+        border-color: #333 !important;
+      }
+
+      [style*="color: #4b5563"],
+      [style*="color: #111827"],
+      [style*="color: #111"] {
+        color: #ccc !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -297,20 +514,19 @@
 
     </div>
   </section>
-  <section id="comparison-kata" style="padding: 2rem; background: #f9fafb;">
-    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">
+  <section id="comparison-kata" class="kata-section">
+    <h2>
       📊 Comparison with Kata Containers
     </h2>
-    <p style="max-width: 700px; color: #4b5563; margin-bottom: 1.5rem;">
+    <p class="kata-description">
       Popcorn™ and Kata both offer hardened isolation — but that’s where the similarity ends.
       Scroll to explore why Popcorn’s zero-runtime boot model is in a class of its own.
     </p>
-
-    <div style="max-height: 600px; overflow-y: auto; padding-right: 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; background: #ffffff;">
+    <div class="kata-scroll">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; padding: 1rem; font-size: 0.95rem; color: #111827;">
 
         <!-- Performance -->
-        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+        <div class="kata-box">
           <h3 style="font-weight: 600; margin-bottom: 0.5rem;">🚀 Performance & Boot Speed</h3>
           <ul style="margin-left: 1rem; list-style: disc;">
             <li><strong>Popcorn:</strong> Sub-second boot (300–800ms), no runtime or guest OS.</li>
@@ -319,7 +535,7 @@
         </div>
 
         <!-- Security -->
-        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+        <div class="kata-box">
           <h3 style="font-weight: 600; margin-bottom: 0.5rem;">🔒 Security Model</h3>
           <ul style="margin-left: 1rem; list-style: disc;">
             <li><strong>Popcorn:</strong> Zero-runtime: no SSH, users, or daemons.</li>
@@ -328,7 +544,7 @@
         </div>
 
         <!-- Philosophy -->
-        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+        <div class="kata-box">
           <h3 style="font-weight: 600; margin-bottom: 0.5rem;">🧱 Architecture Philosophy</h3>
           <ul style="margin-left: 1rem; list-style: disc;">
             <li><strong>Popcorn:</strong> App *is* the system. Single sealed binary.</li>
@@ -337,7 +553,7 @@
         </div>
 
         <!-- Operations -->
-        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+        <div class="kata-box">
           <h3 style="font-weight: 600; margin-bottom: 0.5rem;">⚙️ Operational Lifecycle</h3>
           <ul style="margin-left: 1rem; list-style: disc;">
             <li><strong>Popcorn:</strong> Immutable, CI-pinned, no drift.</li>
@@ -346,7 +562,7 @@
         </div>
 
         <!-- Simplicity -->
-        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+        <div class="kata-box">
           <h3 style="font-weight: 600; margin-bottom: 0.5rem;">📦 Simplicity & Deployability</h3>
           <ul style="margin-left: 1rem; list-style: disc;">
             <li><strong>Popcorn:</strong> App + Kernel + RootFS in one image.</li>
@@ -355,7 +571,7 @@
         </div>
 
         <!-- Stakeholders -->
-        <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+        <div class="kata-box">
           <h3 style="font-weight: 600; margin-bottom: 0.5rem;">👩‍💻 Stakeholder Impact</h3>
           <ul style="margin-left: 1rem; list-style: disc;">
             <li><strong>Popcorn:</strong> Devs ship faster, SREs sleep, CFOs save.</li>
@@ -364,7 +580,7 @@
         </div>
 
         <!-- Summary -->
-        <div style="background: #fef3c7; border: 1px solid #fcd34d; padding: 1.25rem; border-radius: 0.5rem; grid-column: span 2;">
+        <div class="kata-summary">
           <h3 style="font-weight: bold; font-size: 1.1rem;">✨ TL;DR</h3>
           <p style="margin-top: 0.5rem;">
             <strong>Popcorn boots your workload — not a container inside a VM.</strong><br>
@@ -378,7 +594,22 @@
     </div>
   </section>
 
-  <footer style="text-align:center; padding: 2rem 1rem; font-size: 0.9rem; background: #f8f8f8;">
+  <section class="related-links">
+    <h2>🔗 Related Projects & Sponsorship</h2>
+    <ul>
+      <li>
+        <strong><a href="https://forticom.co" target="_blank">Forticom</a></strong> — a trusted messaging platform focused on secure, sovereign communication. Forticom builds on SwiftBoot and Popcorn to harden both server and client infrastructure at the kernel level.
+      </li>
+      <li>
+        <strong><a href="https://techguru.byiq.org" target="_blank">techguru.byiq.org</a></strong> — founder portfolio and polymath projects spanning decades of foundational technology, from microkernel OS to high-trust financial infrastructure.
+      </li>
+      <li>
+        <strong><a href="https://github.com/sponsors/paulcharlton" target="_blank">Sponsor @paulcharlton on GitHub</a></strong> — your support helps drive innovation in ultra-minimal, high-integrity system software.
+      </li>
+    </ul>
+  </section>
+
+  <footer>
     <p>Built with ❤️ by SwiftBoot. Boot fast. Build clean. Ship boldly.</p>
   </footer>
 </body>
