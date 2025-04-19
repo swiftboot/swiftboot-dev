@@ -378,6 +378,36 @@
   </section>
 
   <section>
+    <h2>🔐 Secure, portable, policy-driven builds</h2>
+    <p>
+      With SwiftBoot, dependencies are managed exactly where they belong: <strong>in the pipeline</strong>. Not the target, not the user’s system, and never via ad hoc scripts or runtime surprises.
+    </p>
+
+    <ul>
+      <li>📦 All dependencies resolved and locked <em>inside CI/CD</em>, not on production hosts</li>
+      <li>🛡️ Supply chain attestation built-in — each build is traceable, auditable, and signed</li>
+      <li>🧩 Fully reproducible: every config, every file, every patch tracked and declared</li>
+      <li>🚫 No leaking credentials, secrets, or keys — host remains clean and unprivileged</li>
+      <li>⛔ No broken OTA patch states or "works on my machine" syndrome</li>
+      <li>✅ Builds are <strong>atomic, verifiable, and policy-compliant</strong> before they ever reach your runtime</li>
+    </ul>
+
+    <div class="md-pane-rendered" id="secure-attestation-ota"></div>
+    <script>
+      fetch('snippets/secure-attestation-ota.html')
+              .then(res => res.text())
+              .then(html => {
+                document.getElementById('secure-attestation-ota').innerHTML = html;
+              });
+    </script>
+
+    <p>
+      SwiftBoot turns your pipeline into your release gate, your compliance tool, and your last line of defense. The host? It just boots.
+    </p>
+  </section>
+
+
+  <section>
     <h2>🎯 Stakeholders Who Crave Popcorn™</h2>
     <div class="md-pane-rendered" id="crave"></div>
     <script>

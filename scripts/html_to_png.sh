@@ -36,6 +36,7 @@ function main() {
   _compose_html_wrapper "${input_html}" "${temp_html}"
   _render_chromium "${temp_html}" "${temp_png}"
   _trim_output_png "${temp_png}" "${final_png}"
+  rm -rf temp_html temp_png
   log::shutdown
 }
 
@@ -156,10 +157,9 @@ function _chromium_render_successful() {
 
   awk '{print $0} /bytes written/ {exit}' <"${cr_pipe}"
   # Clean up by removing the named pipe
-  set +m
-  kill -9 "${chromium_pid}" > /dev/null 2>&1
-  kill -9 "${sleep_pid}" > /dev/null 2>&1
-  set -m
+  jobs
+  kill "${chromium_pid}"
+  kill "${sleep_pid}"
   rm "${cr_pipe}"
 }
 
